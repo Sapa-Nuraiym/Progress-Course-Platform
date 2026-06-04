@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="courses-page">
+  <h1 class="page-title">Курстар</h1>
+
+  <h2 class="subject-title">📐 Математика</h2>
+  <div class="courses-grid">
+    {% for course in math_courses %}
+    <div class="course-card">
+      <div class="course-icon">📐</div>
+      <h3>{{ course.title }}</h3>
+      <p>{{ course.description }}</p>
+      <div class="course-actions">
+        <a href="{{ url_for('main.course_detail', course_id=course.id) }}" class="btn-primary">Қарау</a>
+        {% if course not in current_user.enrolled_courses %}
+          <a href="{{ url_for('profile.enroll', course_id=course.id) }}" class="btn-outline">Тіркелу</a>
+        {% else %}
+          <span class="badge-enrolled">✅ Тіркелген</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h2 class="subject-title">💻 Информатика</h2>
+  <div class="courses-grid">
+    {% for course in inf_courses %}
+    <div class="course-card">
+      <div class="course-icon">💻</div>
+      <h3>{{ course.title }}</h3>
+      <p>{{ course.description }}</p>
+      <div class="course-actions">
+        <a href="{{ url_for('main.course_detail', course_id=course.id) }}" class="btn-primary">Қарау</a>
+        {% if course not in current_user.enrolled_courses %}
+          <a href="{{ url_for('profile.enroll', course_id=course.id) }}" class="btn-outline">Тіркелу</a>
+        {% else %}
+          <span class="badge-enrolled">✅ Тіркелген</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

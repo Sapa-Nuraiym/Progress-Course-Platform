@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="course-detail">
+  <h1>{{ course.title }}</h1>
+  <p class="course-desc">{{ course.description }}</p>
+
+  <div class="lessons-list">
+    {% for lesson in course.lessons | sort(attribute='order') %}
+    <div class="lesson-card">
+      <h3>{{ lesson.title }}</h3>
+      <div class="lesson-links">
+        {% if lesson.youtube_url %}
+          <a href="{{ lesson.youtube_url }}" target="_blank" class="btn-youtube">▶ YouTube видео</a>
+        {% endif %}
+        {% if lesson.material_url %}
+          <a href="{{ lesson.material_url }}" target="_blank" class="btn-material">📄 Материал жүктеу</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
