@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Жүйеге кіру</h2>
+    <form method="POST">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="email@gmail.com">
+      </div>
+      <div class="form-group">
+        <label>Құпиясөз</label>
+        <input type="password" name="password" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn-primary btn-full">Кіру</button>
+    </form>
+    <p class="auth-link">Аккаунт жоқ па? <a href="{{ url_for('auth.register') }}">Тіркелу</a></p>
+  </div>
+</div>
+{% endblock %}
