@@ -1,4 +1,4 @@
-from app import app
+from routes import app
 from models import db
 from models.course import Course, Lesson
 
@@ -20,4 +20,3 @@ with app.app_context():
     db.session.add_all(lessons)
     db.session.commit()
     print("Деректер қосылды!")
-    
