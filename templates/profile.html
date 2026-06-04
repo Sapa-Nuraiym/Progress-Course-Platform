@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile-page">
+  <div class="profile-header">
+    <div class="avatar">{{ user.name[0].upper() }}</div>
+    <div>
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>
+
+  <h3>Менің курстарым</h3>
+  {% if user.enrolled_courses.all() %}
+  <div class="courses-grid">
+    {% for course in user.enrolled_courses %}
+    <div class="course-card">
+      <h3>{{ course.title }}</h3>
+      <div class="course-actions">
+        <a href="{{ url_for('main.course_detail', course_id=course.id) }}" class="btn-primary">Жалғастыру</a>
+        <a href="{{ url_for('profile.unenroll', course_id=course.id) }}" class="btn-danger">Шығу</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p class="empty-msg">Әлі курсқа тіркелмегенсіз. <a href="{{ url_for('main.courses') }}">Курстарға өту →</a></p>
+  {% endif %}
+</div>
+{% endblock %}
