@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Профильді өңдеу</h2>
+    <form method="POST">
+      <div class="form-group">
+        <label>Аты-жөні</label>
+        <input type="text" name="name" value="{{ user.name }}" required>
+      </div>
+      <button type="submit" class="btn-primary btn-full">Сақтау</button>
+    </form>
+
+    <hr style="margin: 1.5rem 0;">
+
+    <form method="POST" action="{{ url_for('profile.delete_account') }}"
+          onsubmit="return confirm('Аккаунтты шынымен өшіресіз бе?')">
+      <button type="submit" class="btn-danger btn-full">Аккаунтты өшіру</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+ <div class="search-bar">
+  <form method="GET" action="{{ url_for('main.courses') }}">
+    <input type="text" name="search" placeholder="Курс іздеу..."
+           value="{{ search or '' }}">
+    <button type="submit" class="btn-primary">🔍 Іздеу</button>
+    {% if search %}
+      <a href="{{ url_for('main.courses') }}" class="btn-outline">Тазалау</a>
+    {% endif %}
+  </form>
+</div>
 <div class="courses-page">
   <h1 class="page-title">Курстар</h1>
+
 
   <h2 class="subject-title">📐 Математика</h2>
   <div class="courses-grid">

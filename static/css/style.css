@@ -147,3 +147,17 @@ summary { font-weight: 600; cursor: pointer; color: var(--dark); }
 /* FOOTER */
 footer { text-align: center; padding: 2rem; background: var(--dark); color: #9CA3AF; margin-top: 4rem; }
 footer a { color: var(--light-bg); }
+
+.search-bar {
+  margin-bottom: 2rem;
+}
+.search-bar form {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+}
+.search-bar input {
+  flex: 1; padding: 0.75rem 1rem;
+  border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem;
+}
+.search-bar input:focus {
+  outline: none; border-color: var(--primary);
+}
