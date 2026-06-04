@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прогресс — ҰБТ Курс</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="{{ url_for('main.index') }}" class="logo">📚 Прогресс</a>
+    <div class="nav-links">
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('main.courses') }}">Курстар</a>
+        <a href="{{ url_for('profile.my_profile') }}">Профиль</a>
+        <a href="{{ url_for('main.help') }}">Көмек</a>
+        <a href="{{ url_for('auth.logout') }}" class="btn-outline">Шығу</a>
+      {% else %}
+        <a href="{{ url_for('auth.login') }}" class="btn-outline">Кіру</a>
+        <a href="{{ url_for('auth.register') }}" class="btn-primary">Тіркелу</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <div class="flash-messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+  </div>
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <footer>
+    <p>© 2024 Прогресс | <a href="mailto:sapanuraiym@gmail.com">sapanuraiym@gmail.com</a></p>
+  </footer>
+</body>
+</html>

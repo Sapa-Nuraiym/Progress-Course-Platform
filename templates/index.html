@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <h1>ҰБТ-ға дайын болу уақыты!</h1>
+    <p>Прогресс — математика және информатика пәндерінен ҰБТ-ға дайындайтын онлайн курс платформасы.</p>
+    <div class="hero-buttons">
+      <a href="{{ url_for('auth.register') }}" class="btn-primary btn-large">Тегін бастау</a>
+      <a href="{{ url_for('auth.login') }}" class="btn-outline btn-large">Кіру</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <div class="icon">📐</div>
+    <h3>Математика</h3>
+    <p>Алгебра, геометрия, логарифм — ҰБТ барлық тақырыптары</p>
+  </div>
+  <div class="feature-card">
+    <div class="icon">💻</div>
+    <h3>Информатика</h3>
+    <p>Алгоритм, Python, сандар жүйесі — толық дайындық</p>
+  </div>
+  <div class="feature-card">
+    <div class="icon">🎥</div>
+    <h3>Видео сабақтар</h3>
+    <p>YouTube видео сабақтар мен PDF материалдар</p>
+  </div>
+</section>
+{% endblock %}
